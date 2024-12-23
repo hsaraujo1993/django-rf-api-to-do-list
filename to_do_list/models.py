@@ -11,6 +11,7 @@ STATUS_PRIORITY = [('alta', 'Alta'),
                    ('média', 'Média'),
                    ('baixa', 'Baixa')]
 
+
 class ToDoList(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False)
     description = models.TextField(null=False, blank=False)
