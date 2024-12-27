@@ -8,7 +8,7 @@ STATUS_CHOICES = [('pendente', 'Pendente'),
                   ('atrasado', 'Atrasado')]
 
 STATUS_PRIORITY = [('alta', 'Alta'),
-                   ('média', 'Média'),
+                   ('media', 'Média'),
                    ('baixa', 'Baixa')]
 
 
