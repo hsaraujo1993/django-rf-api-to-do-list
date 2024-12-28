@@ -3,7 +3,6 @@ from django.contrib import admin
 from .models import ToDoList
 
 
-# Formulário personalizado
 class ToDoListForm(forms.ModelForm):
     class Meta:
         model = ToDoList
