@@ -8,12 +8,6 @@ class ToDoListForm(forms.ModelForm):
         model = ToDoList
         fields = '__all__'
 
-    def clean_status(self):
-        status = self.cleaned_data.get('status', '').lower()
-        if not self.instance.pk and status != 'pendente':
-            raise forms.ValidationError("O status deve iniciar como 'pendente'.")
-        return status
-
 
 @admin.register(ToDoList)
 class ToDoListAdmin(admin.ModelAdmin):
