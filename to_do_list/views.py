@@ -2,6 +2,7 @@ from datetime import date
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
+from rest_framework.exceptions import ValidationError
 
 from to_do_list.serializer import ToDoListSerializer
 from to_do_list.models import ToDoList
@@ -40,4 +41,9 @@ class TodoRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ToDoList.objects.all()
     serializer_class = ToDoListSerializer
 
+    def perform_destroy(self, instance):
+        if instance.status not in ["pendente", "cancelada"]:
+            raise ValidationError({'message':
+                                       f'O status {instance.status} não permite exclusão. Permitidos: pendente ou cancelada.'})
 
+        instance.delete()

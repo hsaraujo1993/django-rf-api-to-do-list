@@ -9,8 +9,12 @@ class ToDoListSerializer(serializers.ModelSerializer):
 
     def validate_status(self, value):
         request_method = self.context['request'].method
+
         if request_method in ['PUT', 'PATCH']:
-            allowed_statuses = ['em_andamento', 'concluida', 'cancelada']
-            if value not in allowed_statuses:
-                raise serializers.ValidationError(f'O status "{value}" não é permitido.')
+            allowed_statuses_update = ['em_andamento', 'concluida', 'cancelada']
+            if value not in allowed_statuses_update:
+                raise serializers.ValidationError(
+                    f'O status "{value}" não é permitido para atualizações. Permitidos: {", ".join(allowed_statuses_update)}.'
+                )
+
         return value
