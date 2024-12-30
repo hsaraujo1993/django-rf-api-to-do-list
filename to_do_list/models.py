@@ -6,7 +6,8 @@ from rest_framework.exceptions import ValidationError
 STATUS_CHOICES = [('pendente', 'Pendente'),
                   ('concluida', 'Concluída'),
                   ('em_andamento', 'Em Andamento'),
-                  ('atrasado', 'Atrasado')]
+                  ('atrasada', 'Atrasada'),
+                  ('cancelada', 'Cancelada')]
 
 STATUS_PRIORITY = [('alta', 'Alta'),
                    ('media', 'Média'),

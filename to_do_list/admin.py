@@ -12,6 +12,7 @@ class ToDoListForm(forms.ModelForm):
 @admin.register(ToDoList)
 class ToDoListAdmin(admin.ModelAdmin):
     list_display = (
+        "id",
         "title",
         "status",
         "priority",
